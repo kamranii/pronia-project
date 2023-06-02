@@ -11,11 +11,26 @@ namespace ProniaBE.Data
 		{
 		}
 
-		DbSet<Product> Products { get; set; }
-		DbSet<Category> Categories { get; set; }
-		DbSet<Image> Images { get; set; }
-		DbSet<Tag> Tags { get; set; }
-		DbSet<ProductTag> ProductTags { get; set; }
-	}
+		public DbSet<Product> Products { get; set; }
+		public DbSet<Category> Categories { get; set; }
+		public DbSet<Image> Images { get; set; }
+		public DbSet<Tag> Tags { get; set; }
+		public DbSet<ProductTag> ProductTags { get; set; }
+		public DbSet<Customer> Customers { get; set; }
+		public DbSet<Comment> Comments { get; set; }
+		public DbSet<Brand> Brands { get; set; }
+		public DbSet<Post> Posts { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>()
+                .Property(p => p.CreationDate)
+                .HasDefaultValueSql("GetUtcDate()");
+            modelBuilder.Entity<Post>()
+               .Property(p => p.CreationDate)
+               .HasDefaultValueSql("GetUtcDate()");
+        }
+    }
 }
 

@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ProniaBE.Data;
+using ProniaBE.Services;
+using ProniaBE.Services.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<ApplicationDbContext>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")));
+builder.Services.AddScoped<ProductService, ProductService>();
+builder.Services.AddScoped<ImageService, ImageService>();
+builder.Services.AddScoped<CustomerService, CustomerService>();
+builder.Services.AddScoped<BrandService, BrandService>();
+builder.Services.AddScoped<PostService, PostService>();
+
+
 
 var app = builder.Build();
 

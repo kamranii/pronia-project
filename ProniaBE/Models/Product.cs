@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProniaBE.Models
 {
@@ -13,6 +14,8 @@ namespace ProniaBE.Models
 		public int AmountInStock { get; set; }
 		public string Description { get; set; }
 		public int CategoryId { get; set; }
+		public int TotalSaleAmount { get; set; }
+		public DateTime CreationDate { get; set; }
 
 		public virtual Category Category { get; set; }
 		public virtual ICollection<ProductTag> ProductTags { get; set; }
