@@ -2,10 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using ProniaBE.Data;
 using ProniaBE.Models;
+using ProniaBE.Services.Interfaces;
 
 namespace ProniaBE.Services.Implementations
 {
-	public class PostService
+	public class PostService: IPostService
 	{
 		private readonly ApplicationDbContext _context;
 		public PostService(ApplicationDbContext context)

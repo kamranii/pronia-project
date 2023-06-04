@@ -2,10 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using ProniaBE.Data;
 using ProniaBE.Models;
+using ProniaBE.Services.Interfaces;
 
 namespace ProniaBE.Services.Implementations
 {
-	public class CustomerService
+	public class CustomerService: ICustomerService
 	{
 		private readonly ApplicationDbContext _context;
 		public CustomerService(ApplicationDbContext context)

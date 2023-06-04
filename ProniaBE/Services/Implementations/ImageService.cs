@@ -2,10 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using ProniaBE.Data;
 using ProniaBE.Models;
+using ProniaBE.Services.Interfaces;
 
 namespace ProniaBE.Services.Implementations
 {
-	public class ImageService
+	public class ImageService: IImageService
 	{
 		private readonly ApplicationDbContext _context;
 		public ImageService(ApplicationDbContext context)

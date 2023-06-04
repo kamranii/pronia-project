@@ -2,10 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using ProniaBE.Data;
 using ProniaBE.Models;
+using ProniaBE.Services.Interfaces;
 
 namespace ProniaBE.Services.Implementations
 {
-	public class BrandService
+	public class BrandService: IBrandService
 	{
 		private readonly ApplicationDbContext _context;
 		public BrandService(ApplicationDbContext context)

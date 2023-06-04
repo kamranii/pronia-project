@@ -3,22 +3,23 @@ using Microsoft.AspNetCore.Mvc;
 using ProniaBE.Models;
 using ProniaBE.Services;
 using ProniaBE.Services.Implementations;
+using ProniaBE.Services.Interfaces;
 
 namespace ProniaBE.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ProductService _productService;
-    private readonly ImageService _imageService;
-    private readonly CustomerService _customerService;
-    private readonly BrandService _brandService;
-    private readonly PostService _postService;
+    private readonly IProductService _productService;
+    private readonly IImageService _imageService;
+    private readonly ICustomerService _customerService;
+    private readonly IBrandService _brandService;
+    private readonly IPostService _postService;
 
-    public HomeController (ProductService productService,
-            ImageService imageService,
-            CustomerService customerService,
-            BrandService brandService,
-            PostService postService)
+    public HomeController (IProductService productService,
+            IImageService imageService,
+            ICustomerService customerService,
+            IBrandService brandService,
+            IPostService postService)
     {
         _productService = productService;
         _imageService = imageService;
