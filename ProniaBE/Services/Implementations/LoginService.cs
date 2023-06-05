@@ -14,6 +14,11 @@ namespace ProniaBE.Services.Implementations
         {
             throw new NotImplementedException();
         }
+
+        public Task<string> Generate(User user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

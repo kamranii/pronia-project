@@ -28,7 +28,14 @@ namespace ProniaBE.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserLogin userLogin)
         {
-            return View();
+            var user = await _service.Authenticate(userLogin);
+
+            if(user != null)
+            {
+                var token = await _service.Generate(user);
+                return Ok(token);
+            }
+            return NotFound("User not found");
         }
     }
 }
